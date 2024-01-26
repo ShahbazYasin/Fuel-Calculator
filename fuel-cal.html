@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: linear-gradient(rgb(36, 132, 241), rgb(255, 255, 255));
+            background-repeat: repeat-x;
+            text-align: center;
+            margin: 10px;
+            /* font-family: sans-serif; */
+
+        }
+
+        .cal-box {
+            border: 1px solid;
+            width: 350px;
+            background-color: transparent;
+            box-shadow: 5px 5px 10px;
+            border: none;
+        }
+
+        p {
+            margin: 0px;
+            padding: 2px;
+            font-weight: 600;
+            /* text-align: center; */
+            font-size: 14px;
+
+
+
+        }
+
+        .btn-size {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .inp-style {
+            text-align: center;
+            /* cursor:default */
+        }
+
+        h2 {
+            padding: 10px 0px;
+            margin: 0px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container cal-box">
+        <h1 style="font-style: italic; color: rgb(192, 196, 201);">Fuel Calculator</h1>
+        <hr>
+        <form>
+            <p>Total KM</p>
+            <input type="number" id="input1" class="inp-style">
+            <p>Fuel Average</p>
+            <input type="number" id="input2" class="inp-style">
+
+            <p>Fuel rate 1 January 2024 To 15 January 2024.</p>
+            <button type="submit" class="btn btn-success btn-size" onclick="fuel1(event)">267.34</button>
+            <h2 id="result1">0.00</h2>
+
+            <p>Fuel rate 16 January 2024 To 31 January 2024.</p>
+            <button type="button" class="btn btn-success btn-size" onclick="fuel2()">259.34</button>
+            <h2 id="result2">0.00</h2>
+            <hr>
+
+            <!-- <h2>Total Rs.</h2> -->
+            <button type="button" class="btn btn-success btn-size" onclick="totalRs()">Total Rs.</button>
+            <h2 id="totalR">0.00</h2>
+
+        </form>
+    </div>
+
+
+
+
+
+
+    <script>
+        function fuel1(e) {
+            event.preventDefault();
+            var km = parseInt(document.getElementById("input1").value);
+            var avg = parseInt(document.getElementById("input2").value);
+            var fuelRs = 267.34
+            var maintenence = km * 2
+            var perLeter1 = km / avg * fuelRs + maintenence;
+
+            document.getElementById("result1").innerHTML = perLeter1.toFixed(0);
+            console.log(perLeter1);
+        }
+
+        function fuel2() {
+            var km = parseInt(document.getElementById("input1").value);
+            var avg = parseInt(document.getElementById("input2").value);
+            var fuelRs = 259.34
+            var maintenence = km * 2
+            var perLeter2 = km / avg * fuelRs + maintenence;
+
+            document.getElementById("result2").innerHTML = perLeter2.toFixed(0);
+            console.log(perLeter2);
+
+
+        }
+
+        function totalRs() {
+            var result1 = parseFloat(document.getElementById("result1").innerHTML);
+            var result2 = parseFloat(document.getElementById("result2").innerHTML);
+
+            var total = result1 + result2;
+
+            document.getElementById("totalR").innerHTML = total.toFixed(0);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!doctype>
+<html>
+<style>
+	h3{
+		text-align: center;
+	}
+	.paddingkm {
+		margin: 0 75 0 0;
+	}
+
+	.paddingAve {
+		margin: 0 28 0 0;
+	}
+
+	input {
+		margin: 5 10;
+		width: 100px;
+		height: 35px;
+		font-size: 20px;
+	}
+
+	button {
+		border-radius: 10px;
+		border: none;
+		margin: 10 0;
+		padding: 15px;
+		font-weight: bold;
+		font-size: 20;
+		cursor: pointer;
+		width: 150px;
+
+	}
+
+	.main-container {
+		display: flex;
+		justify-content: center;
+		margin: 0px;
+
+	}
+	.border h1{
+		border: 1px solid;
+		width: 150px;
+		text-align: center;
+
+	}
+</style>
+
+<body>
+	<h3>Fuel Calculator</h3>
+	<div class="main-container">
+
+		<label class="paddingkm">KM</label>
+		<input type="number" name="" id="input1">
+	</div>
+
+		<div class="main-container">
+
+		<label class="paddingAve">Per Ltr Ave</label>
+		<input type="number" name="" id="input2">
+	</div>
+		<div class="main-container">
+			<button onclick="fuel1()">Fule 267.34</button>
+			<button onclick="fuel2()">Fule 259.34</button>
+			<button onclick="totalRs()">Total Rs.</button>
+		</div>
+	<br>
+
+
+	<div class="main-container border">
+		<h1 id="result1">0</h1>
+		<h1 id="result2">0</h1>
+		<h1 id="totalR">0</h1>
+
+	</div>
+
+
+	<script>
+		function fuel1() {
+			var km = parseInt(document.getElementById("input1").value);
+			var avg = parseInt(document.getElementById("input2").value);
+			var fuelRs = 267.34
+			var maintenence = km * 2
+			var perLeter1 = km / avg * fuelRs + maintenence;
+
+			document.getElementById("result1").innerHTML = perLeter1;
+			console.log(perLeter1);
+		}
+
+		function fuel2() {
+			var km = parseInt(document.getElementById("input1").value);
+			var avg = parseInt(document.getElementById("input2").value);
+			var fuelRs = 259.34
+			var maintenence = km * 2
+			var perLeter2 = km / avg * fuelRs + maintenence;
+
+			document.getElementById("result2").innerHTML = perLeter2;
+			console.log(perLeter2);
+
+			// var sum = result2 + result1;
+			// console.log(sum);
+		}
+
+
+
+		// function finalSum(){
+		// 	var result1 =document.getElementById("result1").value;
+		// 	var result2 =document.getElementById("result2").value;
+		// 	var sum =parseInt(result1 + result2);
+		// 	document.getElementById("resultF").innerHTML = sum;
+		// 	console.log(sum);
+
+		// 	var sumf = result1 + result2;
+		// 	document.getElementById("resultF").innerHTML = sumf;
+		// 	console.log(sumf);
+
+		// }
+
+		// function totalRs() {
+		// 	var result1 = document.getElementById("result1").innerHTML;
+		// 	var result2 = document.getElementById("result2").innerHTML;
+
+		// 	var total = result1 + result2;
+
+		// 	document.getElementById("totalR").innerHTML = total;
+		// // }
+
+
+		// this code is chatgtp
+		function totalRs() {
+			var result1 = parseFloat(document.getElementById("result1").innerHTML);
+			var result2 = parseFloat(document.getElementById("result2").innerHTML);
+
+			var total = result1 + result2;
+
+			document.getElementById("totalR").innerHTML = total.toFixed(2);
+		}
+
+
+	</script>
+</body>
+
+</html>
