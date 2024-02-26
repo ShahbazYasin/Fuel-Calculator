@@ -14,6 +14,7 @@
             text-align: center;
             margin: 10px;
             /* font-family: sans-serif; */
+            padding: 0px;
             
         }
         .cal-box{
@@ -28,14 +29,14 @@
             padding: 2px;
             font-weight: 600;
             /* text-align: center; */
-            font-size: 12px;
+            font-size: 14px;
            
 
 
         }
         .btn-size{
             width: 75px;
-            font-weight: bold;
+            font-weight:400;
             padding: 0px;
             margin: 10px 0px;
         }
@@ -44,13 +45,16 @@
             /* cursor:default */
             border: none;
             border-radius: 5px;
-            padding: 0px;
-            margin: 10px 0px;
+            padding: 5px;
+            margin: 0px 0px;
             height: 25px;
+            font-family: sans-serif;
+            font-size: 12px;
         }
         h2{
-            padding: 10px 0px;
+            padding: 5px 0px;
             margin: 0px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
          
         }
     </style>
@@ -64,18 +68,28 @@
             <p>Fuel Average
             <input type="number" id="fuleAve" class="inp-style" style="width: 75px;"></p>
             
-            <p>Fuel rate 1 January 2024 To 15 January 2024.</p>
-            <p>Total KM</p>
+            <p>1 Feb To 15 Feb 2024.</p>
+            <!-- <p>Total KM</p> -->
             
-            <input type="number" id="input1" class="inp-style">
-            <button type="submit" class="btn btn-success btn-size" onclick="fuel1(event)">267.34</button>
+            <input type="number" id="input1" class="inp-style"
+            placeholder="Add KM">
+            <button type="submit" class="btn btn-success btn-size" onclick="fuel1(event)">272.89</button>
             <h2 id="result1">0.00</h2>
 
-            <p>Fuel rate 16 January 2024 To 31 January 2024.</p>
-            <p>Total KM</p>
-            <input type="number" id="input2" class="inp-style">
-            <button type="button" class="btn btn-success btn-size" onclick="fuel2()">259.34</button>
+            <p>16 Feb To 29 Feb 2024.</p>
+            <!-- <p>Total KM</p> -->
+            <input type="number" id="input2" class="inp-style"
+            placeholder="Add KM">
+            <button type="button" class="btn btn-success btn-size" onclick="fuel2()">275.62</button>
             <h2 id="result2">0.00</h2>
+
+            <input type="number" id="input3" class="inp-style" value="" 
+            placeholder="Add a rent.">
+            <button type="button" class="btn btn-success btn-size" 
+            onclick="addRent()"
+            style="font-weight: 400; font-size: 14px;">Add Rent</button>
+            <h2 id="result3">0.00</h2>
+            
             <hr>
 
             <!-- <h2>Total Rs.</h2> -->
@@ -95,7 +109,7 @@
             event.preventDefault();
             var km = parseInt(document.getElementById("input1").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 267.34
+            var fuelRs = 272.89
             var maintenence = km * 2
             var perLeter1 = km / avg * fuelRs + maintenence;
 
@@ -106,7 +120,7 @@
         function fuel2() {
             var km = parseInt(document.getElementById("input2").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 259.34
+            var fuelRs = 275.62
             var maintenence = km * 2
             var perLeter2 = km / avg * fuelRs + maintenence;
 
@@ -116,11 +130,25 @@
 
         }
 
+        function addRent() {
+            var rent = parseInt(document.getElementById("input3").value);
+            // var avg = parseInt(document.getElementById("fuleAve").value);
+            
+            
+            
+
+            document.getElementById("result3").innerHTML = rent.toFixed(0);
+            // console.log(perLeter2);
+
+
+        }
+
         function totalRs() {
             var result1 = parseFloat(document.getElementById("result1").innerHTML);
             var result2 = parseFloat(document.getElementById("result2").innerHTML);
+            var result3 = parseFloat(document.getElementById("result3").innerHTML);
 
-            var total = result1 + result2;
+            var total = result1 + result2 + result3;
 
             document.getElementById("totalR").innerHTML = total.toFixed(0);
         }
