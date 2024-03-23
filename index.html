@@ -66,21 +66,21 @@
         <h1 style="font-style: italic; color: rgb(192, 196, 201);">Fuel Calculator</h1><hr>
         <form>
             <p>Fuel Average
-            <input type="number" id="fuleAve" class="inp-style" style="width: 75px;"></p>
+            <input type="number" id="fuleAve" class="inp-style" style="width: 75px;" value="40"></p>
             
-            <p>1 Feb To 15 Feb 2024.</p>
+            <p>1 March To 31 March 2024.</p>
             <!-- <p>Total KM</p> -->
             
             <input type="number" id="input1" class="inp-style"
             placeholder="Add KM">
-            <button type="submit" class="btn btn-success btn-size" onclick="fuel1(event)">272.89</button>
+            <button type="submit" class="btn btn-success btn-size" onclick="fuel1(event)">279.75</button>
             <h2 id="result1">0.00</h2>
 
-            <p>16 Feb To 29 Feb 2024.</p>
+            <!-- <p>16 Feb To 29 Feb 2024.</p> -->
             <!-- <p>Total KM</p> -->
             <input type="number" id="input2" class="inp-style"
-            placeholder="Add KM">
-            <button type="button" class="btn btn-success btn-size" onclick="fuel2()">275.62</button>
+            placeholder="Add KM" value="0">
+            <button type="button" class="btn btn-success btn-size" onclick="fuel2()">0.00</button>
             <h2 id="result2">0.00</h2>
 
             <input type="number" id="input3" class="inp-style" value="" 
@@ -109,7 +109,7 @@
             event.preventDefault();
             var km = parseInt(document.getElementById("input1").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 272.89
+            var fuelRs = 279.75
             var maintenence = km * 2
             var perLeter1 = km / avg * fuelRs + maintenence;
 
@@ -120,8 +120,8 @@
         function fuel2() {
             var km = parseInt(document.getElementById("input2").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 275.62
-            var maintenence = km * 2
+            var fuelRs = 0
+            var maintenence = km * 0
             var perLeter2 = km / avg * fuelRs + maintenence;
 
             document.getElementById("result2").innerHTML = perLeter2.toFixed(0);
