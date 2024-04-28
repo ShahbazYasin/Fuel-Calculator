@@ -109,7 +109,7 @@
             event.preventDefault();
             var km = parseInt(document.getElementById("input1").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 279.75
+            var fuelRs = 289.41
             var maintenence = km * 2
             var perLeter1 = km / avg * fuelRs + maintenence;
 
@@ -120,8 +120,8 @@
         function fuel2() {
             var km = parseInt(document.getElementById("input2").value);
             var avg = parseInt(document.getElementById("fuleAve").value);
-            var fuelRs = 0
-            var maintenence = km * 0
+            var fuelRs = 293.94
+            var maintenence = km * 2
             var perLeter2 = km / avg * fuelRs + maintenence;
 
             document.getElementById("result2").innerHTML = perLeter2.toFixed(0);
